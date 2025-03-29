@@ -1,6 +1,14 @@
+<!-- J.M.J -->
 <template>
   <router-view></router-view>
 </template>
 
-<script setup>
+<script>
+import { useShopStore } from './stores/shop.js';
+export default {
+  setup() {
+    const store = useShopStore();
+    return { store }
+  },
+}
 </script>
