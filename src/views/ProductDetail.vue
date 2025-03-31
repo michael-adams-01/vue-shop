@@ -1,13 +1,15 @@
 <template>
-  <h1>{{ store.userCart }}</h1>
-  <base-card>
-    <h1 class="text-center font-bold text-2xl">{{ productData.name }}</h1>
-    <p>{{ productData.description }}</p>
-    <h3>${{ productData.price }}</h3>
-    <h3>Items left in stock: {{ productData.stock }}</h3>
-    <h3>Rating: {{ productData.rating }}</h3>
-    <base-button @click="addToCart(productData.id)" class="mt-2">Add to cart</base-button>
-  </base-card>
+  <div>
+    <h1>{{ store.userCart }}</h1>
+    <base-card>
+      <h1 class="text-center font-bold text-2xl">{{ productData.name }}</h1>
+      <p>{{ productData.description }}</p>
+      <h3>${{ productData.price }}</h3>
+      <h3>Items left in stock: {{ productData.stock }}</h3>
+      <h3>Rating: {{ productData.rating }}</h3>
+      <base-button @click="addToCart(productData.id)" class="mt-2">Add to cart</base-button>
+    </base-card>
+  </div>
 </template>
 
 <script>
