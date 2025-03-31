@@ -71,7 +71,7 @@ export const useShopStore = defineStore('shop', {
 
   }),
   actions: {
-    testAction() {
+    getProducts() {
       console.log('testAction ran!')
     }
   }
