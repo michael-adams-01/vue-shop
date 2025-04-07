@@ -1,14 +1,26 @@
 <template>
   <div>
-    <h1>Cart items {{ getCartItems }}</h1>
-    <h1 class="text-center text-2xl font-bold">Shopping Cart</h1>
-    <base-card>
-      <ul v-for="item in store.userCart">
-        <base-card>
-          <li>{{ item }}</li>
-        </base-card>
-      </ul>
-    </base-card>
+    <div v-if="showCartItems">
+      <h1 class="text-center text-2xl font-bold">Shopping Cart</h1>
+      <base-card>
+        <ul v-for="item in store.userCart">
+          <base-card class="">
+            <li>{{ item.name }}</li>
+            <li>${{ item.price }}</li>
+            <li>Qty: 1</li> <!-- Placeholder -->
+            <base-button @click="removeFromCart(item.id)" class="bg-red-500">Remove from cart</base-button>
+          </base-card>
+        </ul>
+      </base-card>
+      <base-card>
+        <h1 class="text-center text-xl">Subtotal: ${{ store.subtotal }}</h1>
+      </base-card>
+    </div>
+    <div v-else>
+      <base-card>
+        <h1 class="text-center font-bold text-2xl">Your cart is empty.</h1>
+      </base-card>
+    </div>
   </div>
 </template>
 
@@ -21,10 +33,19 @@ export default {
   },
   computed: {
     getCartItems() {
-      //const testArray = ['1', '2']
-      //const cartItems = this.store.userCart.filter(item => this.store.userCart.includes(item.id));
-      const cartItems = this.store.products.filter(item => item.id === this.store.cartItems);
-      return cartItems
+      return this.store.userCart;
+    },
+    showCartItems() {
+      if (this.store.userCart <= 0) {
+        return false
+      } else {
+        return true
+      }
+    }
+  },
+  methods: {
+    removeFromCart(id) {
+      console.log(id)
     }
   }
 }
