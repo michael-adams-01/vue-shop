@@ -6,7 +6,7 @@
       <h3>${{ productData.price }}</h3>
       <h3>Items left in stock: {{ productData.stock }}</h3>
       <h3>Rating: {{ productData.rating }}</h3>
-      <base-button @click="addToCart(productData.id)" class="mt-2 hover:scale-95">Add to cart</base-button>
+      <base-button @click="addToCart" class="mt-2 hover:scale-95">Add to cart</base-button>
     </base-card>
     <base-card v-if="showGoToCart">
       <h1 class="font-bold text-2xl">Ready to checkout?</h1>
@@ -38,9 +38,10 @@ export default {
     }
   },
   methods: {
-    addToCart(itm) {
-      this.store.userCart.push(itm);
+    addToCart() {
+      this.store.userCart.push(this.productData);
       this.showGoToCart = true;
+      console.log(this.store.userCart)
     }
   },
 }
