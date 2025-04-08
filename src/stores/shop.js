@@ -4,6 +4,7 @@ export const useShopStore = defineStore('shop', {
   state: () => ({
     userCart: [],
     subtotal: 599,
+    filteredItems: [],
     products: [
       {
         "id": "1",
@@ -72,8 +73,9 @@ export const useShopStore = defineStore('shop', {
 
   }),
   actions: {
-    getProducts() {
-      console.log('testAction ran!')
+    removeFromCart(id) {
+      console.log('removeFromCart ran!', id)
+      this.userCart = this.userCart.filter(item => item.id !== id);
     }
   }
 })

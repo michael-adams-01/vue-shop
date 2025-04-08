@@ -46,6 +46,7 @@ export default {
   methods: {
     removeFromCart(id) {
       console.log(id)
+      this.store.removeFromCart(id)
     }
   }
 }

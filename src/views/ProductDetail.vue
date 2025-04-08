@@ -21,6 +21,9 @@
 </template>
 
 <script>
+function generateId() {
+  return Math.floor(Math.random() * 1000000);
+}
 import { useShopStore } from '../stores/shop.js';
 export default {
   setup() {
@@ -39,7 +42,18 @@ export default {
   },
   methods: {
     addToCart() {
-      this.store.userCart.push(this.productData);
+      const newCartItem = {
+        id: generateId(),
+        name: this.productData.name,
+        description: this.productData.description,
+        price: this.productData.price,
+        category: this.productData.category,
+        stock: this.productData.stock,
+        rating: this.productData.rating,
+      }
+      console.log(newCartItem)
+      this.store.userCart.push(newCartItem);
+      //this.store.userCart.push(this.productData);
       this.showGoToCart = true;
       console.log(this.store.userCart)
     }
