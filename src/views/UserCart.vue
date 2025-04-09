@@ -1,4 +1,5 @@
 <template>
+  <button @click="debugMethod">DEBUG</button>
   <div>
     <div v-if="showCartItems">
       <h1 class="text-center text-2xl font-bold">Shopping Cart</h1>
@@ -13,7 +14,7 @@
         </ul>
       </base-card>
       <base-card>
-        <h1 class="text-center text-xl">Subtotal: ${{ store.subtotal }}</h1>
+        <h1 class="text-center text-xl">Subtotal: ${{ store.getSubtotal }}</h1>
       </base-card>
     </div>
     <div v-else>
@@ -45,8 +46,9 @@ export default {
   },
   methods: {
     removeFromCart(id) {
-      console.log(id)
       this.store.removeFromCart(id)
+    },
+    debugMethod() {
     }
   }
 }

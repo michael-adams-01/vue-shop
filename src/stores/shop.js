@@ -3,7 +3,6 @@ import { defineStore } from 'pinia'
 export const useShopStore = defineStore('shop', {
   state: () => ({
     userCart: [],
-    subtotal: 599,
     filteredItems: [],
     products: [
       {
@@ -76,6 +75,19 @@ export const useShopStore = defineStore('shop', {
     removeFromCart(id) {
       console.log('removeFromCart ran!', id)
       this.userCart = this.userCart.filter(item => item.id !== id);
+    },
+    saveCart() {
+      localStorage.setItem('cart', this.cartItems);
+    },
+  },
+  getters: {
+    getSubtotal() {
+      //const prices = this.store.userCart.map(item => item.price);
+      const prices = this.userCart.map(item => item.price)
+      // const sum = prices.reduce((acc, cur) => acc + cur, 0); //Find out why this code works.
+      const sum = prices.reduce((acc, cur) => acc + cur, 0);
+      const roundedSum = Math.round(sum)
+      return roundedSum
     }
   }
 })
