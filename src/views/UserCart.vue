@@ -1,6 +1,5 @@
 <template>
   <div>
-    <button @click="debugMethod">DEBUG</button>
     <div v-if="showCartItems">
       <h1 class="text-center text-2xl font-bold">Shopping Cart</h1>
       <base-card>

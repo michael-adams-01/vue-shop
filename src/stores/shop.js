@@ -73,15 +73,26 @@ export const useShopStore = defineStore('shop', {
   }),
   actions: {
     removeFromCart(id) {
-      console.log('removeFromCart ran!', id)
       this.userCart = this.userCart.filter(item => item.id !== id);
-    },
-    saveCart() {
-      localStorage.setItem('cart', this.cartItems);
+      this.saveCart()
     },
     addToCart(newItem) {
       this.userCart.push(newItem);
+      this.saveCart()
     },
+    saveCart() {
+      localStorage.setItem('savedCart', JSON.stringify(this.userCart));
+      console.log(this.userCart)
+    },
+    getSavedCart() {
+      const savedCart = localStorage.getItem('savedCart')
+      const savedCartParsed = JSON.parse(savedCart)
+      console.log(savedCartParsed)
+
+      if (!!savedCartParsed) {
+        this.userCart = savedCartParsed
+      }
+    }
   },
   getters: {
     getSubtotal() {
@@ -91,6 +102,9 @@ export const useShopStore = defineStore('shop', {
       const sum = prices.reduce((acc, cur) => acc + cur, 0);
       const roundedSum = Math.round(sum)
       return roundedSum
-    }
+    },
+    cartItemsCount() {
+      return this.userCart.length
+    },
   }
 })

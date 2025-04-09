@@ -15,6 +15,9 @@ export default {
     const store = useShopStore();
     return { store }
   },
+  mounted() {
+    this.store.getSavedCart()
+  }
 }
 </script>
 
