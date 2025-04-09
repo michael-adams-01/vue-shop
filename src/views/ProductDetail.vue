@@ -51,11 +51,8 @@ export default {
         stock: this.productData.stock,
         rating: this.productData.rating,
       }
-      console.log(newCartItem)
-      this.store.userCart.push(newCartItem);
-      //this.store.userCart.push(this.productData);
+      this.store.addToCart(newCartItem)
       this.showGoToCart = true;
-      console.log(this.store.userCart)
     }
   },
 }

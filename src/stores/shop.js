@@ -79,6 +79,9 @@ export const useShopStore = defineStore('shop', {
     saveCart() {
       localStorage.setItem('cart', this.cartItems);
     },
+    addToCart(newItem) {
+      this.userCart.push(newItem);
+    },
   },
   getters: {
     getSubtotal() {
