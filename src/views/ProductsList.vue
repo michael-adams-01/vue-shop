@@ -4,11 +4,10 @@
       <h1 class="text-center font-bold text-2xl">Featured Products</h1>
       <ul v-for="product in store.products">
         <base-card @click="loadProduct(product.id)">
-          <img class="h-130 w-200 bg-blue-500 bg-cover bg-no-repeat bg-center"
-            src="https://www.aaronfaber.com/wp-content/uploads/2017/03/product-placeholder-wp.jpg" alt="">
-          <li>Name: {{ product.name }}</li>
-          <li class="font-bold">Image placeholder</li>
-          <li>Description: {{ product.description }}</li>
+          <img class="h-130 w-200 bg-blue-500 bg-cover bg-no-repeat bg-center object-cover" :src="product.image" alt="">
+          <li class="font-bold text-xl">{{ product.name }}</li>
+          <!-- <li class="font-bold">{{ product.image }}</li> -->
+          <li>{{ product.description }}</li>
           <li>Price: ${{ product.price }}</li>
           <li>Stock: {{ product.stock }}</li>
           <li>Rating: {{ product.rating }}</li>

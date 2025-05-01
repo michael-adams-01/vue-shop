@@ -5,9 +5,9 @@
       <base-card>
         <ul v-for="item in store.userCart">
           <base-card class="">
+            <img class="w-50 object-cover" :src="item.image" alt="">
             <li>{{ item.name }}</li>
             <li>${{ item.price }}</li>
-            <li>Qty: 1</li> <!-- Placeholder -->
             <base-button @click="removeFromCart(item.id)" class="bg-red-500">Remove from cart</base-button>
           </base-card>
         </ul>

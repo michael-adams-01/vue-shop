@@ -1,4 +1,3 @@
-<!-- J.M.J -->
 <template>
   <nav-bar></nav-bar>
   <router-view v-slot="slotProps">

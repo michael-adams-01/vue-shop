@@ -1,6 +1,7 @@
 <template>
   <div>
     <base-card>
+      <img :src="productData.image" alt="">
       <h1 class="text-center font-bold text-2xl">{{ productData.name }}</h1>
       <p>{{ productData.description }}</p>
       <h3>${{ productData.price }}</h3>
@@ -50,6 +51,7 @@ export default {
         category: this.productData.category,
         stock: this.productData.stock,
         rating: this.productData.rating,
+        image: this.productData.image,
       }
       this.store.addToCart(newCartItem)
       this.showGoToCart = true;
