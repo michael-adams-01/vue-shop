@@ -18,7 +18,7 @@ export const useShopStore = defineStore('shop', {
       {
         "id": "2",
         "name": "Swiss Automatic Dress Watch",
-        "description": "Exquisite Swiss-made automatic watch with a sapphire crystal and alligator leather strap.",
+        "description": "Exquisite Swiss-made automatic watch with a sapphire crystal and stainless steel strap.",
         "price": 980.99,
         "category": ["accessories", "luxury"],
         "stock": 3,
